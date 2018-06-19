@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:method name="navigateToUrl" 
+        action="{!c.update}"
+        description="Show Panel Event">
+           <aura:attribute name="session" type="Object" /> 
+    </aura:method>
+
+<lightning:progressIndicator currentStep="3" type="path" hasError="false">
+    <lightning:progressStep label="Step 1" value="1"/>
+    <lightning:progressStep label="Step 2" value="2"/>
+    <lightning:progressStep label="Step 3" value="3"/>
+    <lightning:progressStep label="Step 4" value="4"/>
+    </lightning:progressIndicator>
+</aura:component>	

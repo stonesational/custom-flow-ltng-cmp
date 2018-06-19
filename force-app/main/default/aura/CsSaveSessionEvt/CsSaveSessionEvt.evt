@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Send session to parent(CsHome) to persist">
+        <aura:attribute name="session" type="Object" description="The Updated Session"/>
+</aura:event>

@@ -1,0 +1,16 @@
+<aura:component controller="CsHome_CC" implements="lightning:isUrlAddressable, flexipage:availableForAllPageTypes, force:appHostable" access="global">
+                <aura:handler name="CsNavigatePanelEvt" event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
+        <aura:attribute name="session" type="CsSession" description="Card replacement work in progress" />
+        <aura:attribute name="pageReference" type="Object" description="URL when the component was accessed from a URL"/>
+             
+        <!--lightning:navigation aura:id="navigationService"/-->
+       
+        <aura:handler name="init" value="{!this}" action="{!c.init}" />           
+        <aura:handler name="CsSaveSessionEvt" event="c:CsSaveSessionEvt" action="{!c.CsSaveSessionEvt}"/>       
+        
+
+        <c:CsProgressPanel />  
+        
+        {!v.body}
+
+</aura:component>	

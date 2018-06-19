@@ -1,0 +1,29 @@
+<aura:component>
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />       
+    
+    <aura:attribute name="session" type="CsSession" description="stores the card replacement work in progress" />
+
+    <aura:registerEvent name="CsNavigatePanelEvt" type="c:CsNavigatePanelEvt" description="Navigate to a another panel" />   
+    <aura:registerEvent name="CsSaveSessionEvt" type="c:CsSaveSessionEvt" description="Send session to parent(CsHome) to persist" />   
+    
+
+    <!-- START: Body -->
+    <lightning:card title="Select Card:">
+        <aura:iteration items="{!v.session.currentCards}" var="currentCard">
+            <lightning:input type="checkbox" 
+                label="{!currentCard.name}" 
+                name="{!currentCard.id}" 
+                onchange="{!c.updateCard}" 
+                aura:id="dynamicResult"/>         
+        </aura:iteration>
+    </lightning:card>
+    
+    <lightning:card class="slds-text-align_right">
+        <lightning:button variant="brand" 
+            label="Delivery Shipping" 
+            aura:id="CsDeliveryShipping" 
+            onclick="{! c.next }" />
+    </lightning:card>
+    <!-- END: Body -->
+
+</aura:component>	

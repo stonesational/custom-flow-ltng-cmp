@@ -1,0 +1,5 @@
+<aura:component implements="force:lightningQuickAction, force:hasRecordId" access="global">
+    <aura:attribute name="caseId" type="String" default="5001F000001rRcKQAU" /> 
+    <lightning:navigation aura:id="navigationService" />    
+    <aura:handler name="render" value="{!this}" action="{!c.init}" />
+</aura:component>	
