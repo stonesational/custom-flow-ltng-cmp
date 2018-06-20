@@ -1,7 +1,6 @@
 ({
     
     loadPanel : function(cmp, panel, params) {
-        //$A.createComponent('c:'+panel, params.attributes, function(newPanel) {  
         $A.createComponent('c:'+panel,
             { session: cmp.get("v.session") },
             function(newPanel) {

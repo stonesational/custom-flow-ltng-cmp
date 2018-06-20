@@ -21,7 +21,7 @@
     <lightning:card class="slds-text-align_right">
         <lightning:button variant="brand" 
             label="Delivery Shipping" 
-            aura:id="CsDeliveryShipping" 
+            aura:id="CsDeliveryShippingPanel" 
             onclick="{! c.next }" />
     </lightning:card>
     <!-- END: Body -->

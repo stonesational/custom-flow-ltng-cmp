@@ -3,8 +3,7 @@
         helper.getSession(cmp, helper, cmp.get("v.pageReference.state.c__caseId"));
     },
 
-    CSNavigatePanelEvt : function(cmp, event, helper) {
-        console.log('STONE: event::: ' + event);
+    CsNavigatePanelEvt : function(cmp, event, helper) {
         helper.loadPanel(cmp, event.getParams().target);
     },
 
