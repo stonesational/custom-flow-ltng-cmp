@@ -4,9 +4,9 @@
     },
     
     next : function(cmp, event, helper) {        
-        let nextPanel = ""+event.getSource().getLocalId();
+        let nextPanel = event.getSource().getLocalId();
 
-        var CsNavigatePanelEvt = cmp.getEvent("CsNavigatePanelEvt");
+        var CsNavigatePanelEvt = $A.get("e.c:CsNavigatePanelEvt");     
         CsNavigatePanelEvt.setParams({ "target" : nextPanel });
         CsNavigatePanelEvt.fire();
     },
@@ -15,7 +15,6 @@
         helper.save(cmp);
     },
 
-    //TODO: Move bulk of this to helper
     updateCard : function(cmp, event, helper) {
         helper.updateCard(cmp, helper);
     }

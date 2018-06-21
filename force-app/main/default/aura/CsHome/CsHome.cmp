@@ -5,7 +5,7 @@
         <!--lightning:navigation aura:id="navigationService"/-->
        
         <aura:handler name="init" value="{!this}" action="{!c.init}" />           
-        <aura:handler name="CsNavigatePanelEvt" event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
+        <aura:handler event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
         <aura:handler name="CsSaveSessionEvt" event="c:CsSaveSessionEvt" action="{!c.CsSaveSessionEvt}"/>       
 
         <c:CsProgressPanel />  

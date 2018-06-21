@@ -1,27 +1,32 @@
 <aura:component>
-    <!--aura:method name="navigateToUrl" 
-        action="{!c.update}"
-        description="Show Panel Event">
-           <aura:attribute name="session" type="Object" /> 
-    </aura:method-->
-    <!--aura:handler name="CsNavigatePanelEvt" event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/-->
     <aura:handler event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
     <aura:attribute name="currentStep" type="String" default="CsPlasticCardPanel" />
 
     <lightning:progressIndicator currentStep="{!v.currentStep}" type="path" hasError="false">
-        <lightning:progressStep label="Plastic Card" value="CsPlasticCardPanel"/>
-        <lightning:progressStep label="Delivery Shipping" value="CsDeliveryShippingPanel"/>
-        <lightning:progressStep label="Card Features" value="CsCardFeaturesPanel"/>
-        <lightning:progressStep label="Summary" value="CsSummaryPanel"/>
-        <lightning:progressStep label="Finish" value="CsFinishPanel"/>
+        <lightning:progressStep label="Plastic Card" 
+            value="CsPlasticCardPanel" 
+            aura:id="CsPlasticCardPanel" 
+            onclick="{!c.navigate}"/>
+        
+        <lightning:progressStep label="Delivery Shipping" 
+            value="CsDeliveryShippingPanel" 
+            aura:id="CsDeliveryShippingPanel" 
+            onclick="{!c.navigate}" />
+            
+        <lightning:progressStep label="Card Features" 
+            value="CsCardFeaturesPanel" 
+            aura:id="CsCardFeaturesPanel" 
+            onclick="{!c.navigate}"/>
+
+        <lightning:progressStep label="Summary" 
+            value="CsSummaryPanel" 
+            aura:id="CsSummaryPanel" 
+            onclick="{!c.navigate}"/>
+        
+        <lightning:progressStep label="Finish" 
+            value="CsFinishPanel" 
+            aura:id="CsFinishPanel" 
+            onclick="{!c.navigate}"/>
     </lightning:progressIndicator>
 
-
-    <!--lightning:progressIndicator currentStep="1" type="path" hasError="false">
-        <lightning:progressStep label="CsPlasticCardPanel" value="1"/>
-        <lightning:progressStep label="CsDeliveryShippingPanel" value="2"/>
-        <lightning:progressStep label="CsCardFeaturesPanel" value="3"/>
-        <lightning:progressStep label="CsSummaryPanel" value="4"/>
-        <lightning:progressStep label="CsFinishPanel" value="5"/>
-    </lightning:progressIndicator-->
-    </aura:component>	
+</aura:component>	
