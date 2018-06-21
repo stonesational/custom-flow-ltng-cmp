@@ -1,3 +1,22 @@
 <aura:component>
-    Summary
+    <div class="c-container slds-card">
+        <h1>Summary</h1>
+
+        <!-- START: Buttons -->
+        <lightning:layout horizontalAlign="spread">
+            <lightning:layoutItem padding="around-small">
+                <lightning:button variant="brand" 
+                    label="Back" 
+                    aura:id="CsCardFeaturesPanel" 
+                    onclick="{! c.next }" />
+            </lightning:layoutItem>
+            <lightning:layoutItem  padding="around-small">
+                <lightning:button variant="brand" 
+                label="Next" 
+                aura:id="CsFinishPanel" 
+                onclick="{! c.next }" />
+            </lightning:layoutItem>
+        </lightning:layout>
+        <!-- END: Buttons -->
+    </div>
 </aura:component>	

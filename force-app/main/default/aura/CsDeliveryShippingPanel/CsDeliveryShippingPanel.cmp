@@ -1,3 +1,22 @@
 <aura:component>
-        <h1>I am CsDeliveryShipping Panel</h1>
+        <div class="c-container slds-card">
+                <h1>I am CsDeliveryShipping Panel</h1>
+        
+                <!-- START: Buttons -->
+                <lightning:layout horizontalAlign="spread">
+                        <lightning:layoutItem padding="around-small">
+                                <lightning:button variant="brand" 
+                                label="Back" 
+                                aura:id="CsPlasticCardPanel" 
+                                onclick="{! c.next }" />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem  padding="around-small">
+                                <lightning:button variant="brand" 
+                                label="Next" 
+                                aura:id="CsCardFeaturesPanel" 
+                                onclick="{! c.next }" />
+                        </lightning:layoutItem>
+                </lightning:layout>
+                <!-- END: Buttons -->
+        </div>
 </aura:component>	

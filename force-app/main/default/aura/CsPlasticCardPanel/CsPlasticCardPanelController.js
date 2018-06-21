@@ -1,7 +1,4 @@
 ({
-    init : function(cmp, event, helper) {
-        //do something
-    },
     
     next : function(cmp, event, helper) {        
         let nextPanel = event.getSource().getLocalId();

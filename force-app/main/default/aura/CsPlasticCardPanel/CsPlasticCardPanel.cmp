@@ -1,5 +1,4 @@
 <aura:component>
-    <aura:handler name="init" value="{!this}" action="{!c.init}" />       
     
     <aura:attribute name="session" type="CsSession" description="stores the card replacement work in progress" />
 
@@ -8,22 +7,28 @@
     
 
     <!-- START: Body -->
-    <lightning:card title="Select Card:">
-        <aura:iteration items="{!v.session.currentCards}" var="currentCard">
-            <lightning:input type="checkbox" 
-                label="{!currentCard.name}" 
-                name="{!currentCard.id}" 
-                onchange="{!c.updateCard}" 
-                aura:id="dynamicResult"/>         
-        </aura:iteration>
-    </lightning:card>
-    
-    <lightning:card class="slds-text-align_right">
-        <lightning:button variant="brand" 
-            label="Delivery Shipping" 
-            aura:id="CsDeliveryShippingPanel" 
-            onclick="{! c.next }" />
-    </lightning:card>
-    <!-- END: Body -->
+    <div class="c-container slds-card">
+        <lightning:card title="Select Card:">
+            <aura:iteration items="{!v.session.currentCards}" var="currentCard">
+                <lightning:input type="checkbox" 
+                    label="{!currentCard.name}" 
+                    name="{!currentCard.id}" 
+                    onchange="{!c.updateCard}" 
+                    aura:id="dynamicResult"/>         
+            </aura:iteration>
+        </lightning:card>
+        <!-- END: Body -->
+
+        <!-- START: Buttons -->
+        <lightning:layout horizontalAlign="end">
+            <lightning:layoutItem padding="around-small">
+                <lightning:button variant="brand" 
+                    label="Next" 
+                    aura:id="CsDeliveryShippingPanel" 
+                    onclick="{! c.next }" />
+                </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <!-- END: Buttons -->
 
 </aura:component>	
