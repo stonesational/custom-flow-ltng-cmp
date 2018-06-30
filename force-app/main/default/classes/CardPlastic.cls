@@ -1,3 +1,7 @@
+/*------------------------------------------------------------
+Plastic Card. Name starts with Card so it's located next to CardDigital
+Components Using: CsHome
+------------------------------------------------------------*/
 public with sharing class CardPlastic {
     
     @AuraEnabled public String id { get; set; }

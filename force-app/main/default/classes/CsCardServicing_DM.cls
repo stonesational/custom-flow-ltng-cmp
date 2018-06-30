@@ -1,8 +1,16 @@
+/*------------------------------------------------------------
+Data Manager for interacting with Card Servcing Microservices
+------------------------------------------------------------*/
 public with sharing class CsCardServicing_DM {
     public CsCardServicing_DM() {
 
     }
 
+    /*------------------------------------------------------------
+	Get cards owned by the customer
+	@param argCustomerId: The unique ID of the customer. Likely ECN
+	@return List<CardPlastic>: All plastic cards that can be replaced
+	------------------------------------------------------------*/
     public List<CardPlastic> getCards(String argCustomerId){
         List<CardPlastic> toReturn = new List<CardPlastic>();
         CardPlastic card;
@@ -29,6 +37,12 @@ public with sharing class CsCardServicing_DM {
         return toReturn;
     }
 
+    /*------------------------------------------------------------
+	Process card replacement for card(s). Should be the final step of the Card Servicing flow
+    TODO: Change return type to include messages for each card
+	@param argSession: All cards that are to be replaced
+	@return Messages for each card
+	------------------------------------------------------------*/
     public void processReplacement(CsSession argSession){
         //call service and save.
     }
