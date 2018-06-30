@@ -1,8 +1,8 @@
 <!--
 Name:           c:CsHome
-Description:    Orchestrates the Panels by destorying and replacing panels. 
-                Session is passed back up from each panel within a CsNavigatePanelEvt or CsSaveSessionEvt
-                NOTE: CsHome is the only component that exchanges session with the server
+Description:    Orchestrates the UI by Loading/replacing Panels within this components body.
+                Session is passed into each Panel on initiate and passed back up to CsHome before being replaced via CsNavigatePanelEvt
+                NOTE: CsHome is the only component that exchanges session with the server. Panels can communicate as needed but CsHome handles the session.
 -->
 
 <aura:component controller="CsHome_CC" implements="lightning:isUrlAddressable, flexipage:availableForAllPageTypes, force:appHostable" access="global">

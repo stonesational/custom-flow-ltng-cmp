@@ -1,6 +1,6 @@
 <!--
 Name:           c:CsBasePanel
-Description:    Parent component for all Panels. Contains common attributes, events and helper functions
+Description:    Headless Parent component for all Panels. Contains common attributes, events and helper functions.
 -->
 <aura:component extensible="true">
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />     

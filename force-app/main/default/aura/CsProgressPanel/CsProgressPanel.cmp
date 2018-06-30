@@ -1,3 +1,9 @@
+<!--
+Name:           c:CsProgressPanel
+Description:    Displays a progressIndicator with the current step. Listens for CsNavigatePanelEvt and updates the currentStep.
+                Can fire CsNavigatePanelEvt with fromProgressPanel = true. fromProgressPanel is caught by PanelBase and re-fired WITH SESSION. 
+                CsProgressPanel doesn't have the active sesssion so BasePanel needs to attach so it's not lost by CsHome                
+-->
 <aura:component>
     <aura:handler event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
     <aura:attribute name="currentStep" type="String" default="CsPlasticCardPanel" />
