@@ -1,3 +1,18 @@
-<aura:event type="APPLICATION" description="Event template">
-    <aura:attribute name="target" type="String" description="Which Panel to load"/>
+<!--    c:CsNavigatePanelEvt 
+        Application scoped event because CsProgressPanel needs to handle and it's not above in the component hierachy
+-->
+<aura:event type="APPLICATION" description="Fired when it's time to load a new Panel">
+    
+<aura:attribute description="The name of the Panel (component) to load"
+        name="target" 
+        type="String" />
+
+    <aura:attribute description="Session pased for safe keeping in CsHome"
+        name="session" 
+        type="CsSession" />
+
+    <aura:attribute description="Did the event come from CsProgressPanel? If so it needs to be handled differently since CsProgressPanel is not in possession of the session"
+        name="fromProgressPanel" 
+        type="Boolean" />
+
 </aura:event>

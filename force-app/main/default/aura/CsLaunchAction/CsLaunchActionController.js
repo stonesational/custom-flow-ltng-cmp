@@ -1,4 +1,6 @@
 ({
+    /*	Navigate to the component and pass the caseId as a querystring parameter
+    */
     init : function(cmp, event, helper) {
         cmp.find("navigationService").navigate({
             type: "standard__component",

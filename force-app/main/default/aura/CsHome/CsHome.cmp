@@ -1,15 +1,32 @@
+<!--
+Name:           c:CsHome
+Description:    Orchestrates the Panels by destorying and replacing panels. 
+                Session is passed back up from each panel within a CsNavigatePanelEvt or CsSaveSessionEvt
+                NOTE: CsHome is the only component that exchanges session with the server
+-->
+
 <aura:component controller="CsHome_CC" implements="lightning:isUrlAddressable, flexipage:availableForAllPageTypes, force:appHostable" access="global">
-        <aura:attribute name="session" type="CsSession" description="Card replacement work in progress" />
-        <aura:attribute name="pageReference" type="Object" description="URL when the component was accessed from a URL"/>
-             
-        <!--lightning:navigation aura:id="navigationService"/-->
+        <aura:attribute description="Card replacement work in progress"
+                name="session" 
+                type="CsSession"  />
+
+        <aura:attribute description="URL of this component.  Accepts CaseId in the QueryString"
+                name="pageReference" 
+                type="Object" />
        
-        <aura:handler name="init" value="{!this}" action="{!c.init}" />           
-        <aura:handler event="c:CsNavigatePanelEvt" action="{!c.CsNavigatePanelEvt}"/>
-        <aura:handler name="CsSaveSessionEvt" event="c:CsSaveSessionEvt" action="{!c.CsSaveSessionEvt}"/>       
+        <aura:handler name="init" value="{!this}" action="{!c.init}" />   
+
+        <aura:handler description="Replaces the current Panel with a new one specified in the Event parameter: target "
+                event="c:CsNavigatePanelEvt" 
+                action="{!c.CsNavigatePanelEvt}"/>
+        
+        <aura:handler description="If a Panel wants to save session outside of a navigate event they fire this event"
+                name="CsSaveSessionEvt" 
+                event="c:CsSaveSessionEvt" 
+                action="{!c.CsSaveSessionEvt}"/>       
 
         <c:CsProgressPanel />  
         
-        {!v.body}
+        {!v.body} <!-- Panels are dynamically loaded into v.body -->
 
 </aura:component>	

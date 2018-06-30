@@ -1,3 +1,11 @@
-<aura:component>
-    Finished
+<!--
+Name:           c:CsFinish
+Description:    Sample panel used as a starter when implementing a new panel
+Extends:        CsBasePanel
+Attributes:     Uses session, currentCards and replacementCards from CsBasePanel
+-->
+<aura:component  extends="c:CsBasePanel">
+<div class="c-container slds-card">    
+    <h1>Finished</h1>
+</div>
 </aura:component>	

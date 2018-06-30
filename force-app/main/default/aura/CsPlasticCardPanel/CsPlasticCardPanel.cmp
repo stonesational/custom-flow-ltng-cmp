@@ -1,34 +1,37 @@
-<aura:component>
+<!--
+Name:           c:CsPlasticCardPanel
+Description:    Sample panel used as a starter when implementing a new panel
+Extends:        CsBasePanel
+Attributes:     Uses session, currentCards and replacementCards from CsBasePanel
+-->
+<aura:component extends="c:CsBasePanel">
     
-    <aura:attribute name="session" type="CsSession" description="stores the card replacement work in progress" />
+<!-- START: Body --> 
+<div class="c-container slds-card">
+    <lightning:card title="Select Card(s):">
+         <aura:iteration items="{!v.currentCards}" var="currentCard">
+            <lightning:input type="checkbox" 
+                label="{!currentCard.name}" 
+                name="{!currentCard.id}" 
+                onchange="{!c.updateCard}" 
+                aura:id="dynamicResult"
+                checked="{!currentCard.selected}"/>         
+        </aura:iteration>
+     </lightning:card>
+</div>
+<!-- END: Body -->
 
-    <aura:registerEvent name="CsNavigatePanelEvt" type="c:CsNavigatePanelEvt" description="Navigate to a another panel" />   
-    <aura:registerEvent name="CsSaveSessionEvt" type="c:CsSaveSessionEvt" description="Send session to parent(CsHome) to persist" />   
-    
-
-    <!-- START: Body -->
-    <div class="c-container slds-card">
-        <lightning:card title="Select Card:">
-            <aura:iteration items="{!v.session.currentCards}" var="currentCard">
-                <lightning:input type="checkbox" 
-                    label="{!currentCard.name}" 
-                    name="{!currentCard.id}" 
-                    onchange="{!c.updateCard}" 
-                    aura:id="dynamicResult"/>         
-            </aura:iteration>
-        </lightning:card>
-        <!-- END: Body -->
-
-        <!-- START: Buttons -->
-        <lightning:layout horizontalAlign="end">
-            <lightning:layoutItem padding="around-small">
-                <lightning:button variant="brand" 
-                    label="Next" 
-                    aura:id="CsDeliveryShippingPanel" 
-                    onclick="{! c.next }" />
-                </lightning:layoutItem>
+<!-- START: Buttons -->
+<div class="c-container slds-card">
+    <lightning:layout horizontalAlign="end">
+        <lightning:layoutItem padding="around-small">
+            <lightning:button variant="brand" 
+                label="Next" 
+                aura:id="CsDeliveryShippingPanel" 
+                onclick="{! c.next }" />
+            </lightning:layoutItem>
         </lightning:layout>
-    </div>
-    <!-- END: Buttons -->
+</div>
+<!-- END: Buttons -->
 
 </aura:component>	

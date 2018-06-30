@@ -1,5 +1,17 @@
+<!--
+Name:           c:CsLaunchAction
+Description:    QuickLaunch Action so the Card Servicing flow can be launched from an Account (or whatever)
+                lightning:navigation is the new and improved navigation mechanism from Summer'18
+                TODO: Remove hard-coded caseId
+-->
 <aura:component implements="force:lightningQuickAction, force:hasRecordId" access="global">
-    <aura:attribute name="caseId" type="String" default="5001F000001rRcKQAU" /> 
+    <aura:attribute description="CaseId for testing"
+        name="caseId" 
+        type="String" 
+        default="5001F000001rRcKQAU" /> 
+
     <lightning:navigation aura:id="navigationService" />    
+
     <aura:handler name="render" value="{!this}" action="{!c.init}" />
+
 </aura:component>	

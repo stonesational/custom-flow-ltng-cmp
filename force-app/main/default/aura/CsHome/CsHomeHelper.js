@@ -1,8 +1,9 @@
 ({
-    
+    /*	Load a new panel by replacing the previous one in the DOM 
+        Pass the session into the newly created component since it can't access CsHome's attributes
+    */
     loadPanel : function(cmp, panel, params) {
-        $A.createComponent('c:'+panel,
-            { session: cmp.get("v.session") },
+        $A.createComponent('c:'+panel, { session: cmp.get("v.session") },
             function(newPanel) {
                 if (cmp.isValid()) {
                     cmp.set("v.body", [ newPanel ] );
@@ -10,6 +11,8 @@
         });
     },
     
+    /*	Get session from the server. If one is already attached to the case we'll get that. Otherwise new/fresh
+    */
     getSession : function(cmp, helper, caseId){
         var action = cmp.get("c.getSession");
         action.setParams({ argCaseId :caseId });
@@ -30,6 +33,8 @@
         $A.enqueueAction(action);       
     },
 
+    /*	Saves the session on the server attached to the case
+    */
     saveSession : function(cmp){
         var action = cmp.get("c.saveSession");
         action.setParams( { 
@@ -73,4 +78,5 @@
         });
         $A.enqueueAction(action);    
     }
+    
 })

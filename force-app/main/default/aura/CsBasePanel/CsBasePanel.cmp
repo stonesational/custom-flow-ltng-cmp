@@ -1,0 +1,34 @@
+<!--
+Name:           c:CsBasePanel
+Description:    Parent component for all Panels. Contains common attributes, events and helper functions
+-->
+<aura:component extensible="true">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />     
+    
+    <aura:attribute description="Wrapper to hold all data about the card service session. Passed to the Controller to save session as needed and ultimately process the replacemnt(s)."
+        name="session" 
+        type="CsSession" />
+
+    <aura:attribute description="Current cards the customer has that can be replaced. Pulled from session on init for binding. Added back to session before sending to the server"
+        name="currentCards" 
+        type="CardPlastic[]" />
+    
+    <aura:attribute description="Cards to be replaced. Pulled from session on init for binding. Added back to session before sending to the server"
+        name="replacementCards" 
+        type="CsReplacementCard[]" />
+
+    <aura:registerEvent description="Fire this event to navigate to another panel"
+        name="CsNavigatePanelEvt" 
+        type="c:CsNavigatePanelEvt" />   
+
+    <aura:registerEvent description="Fire this event to save the session on the server"
+        name="CsSaveSessionEvt" 
+        type="c:CsSaveSessionEvt"  /> 
+
+    <aura:handler description="Listen for Navigation events from CsProgressPanel only. Refires CsNavigatePanelEvt with session added so CsHome can store before the current panel is replaced with the next"
+        event="c:CsNavigatePanelEvt" 
+        action="{!c.CsNavigatePanelEvt}"/>
+  
+    {!v.body}
+
+</aura:component>	

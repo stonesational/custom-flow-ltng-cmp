@@ -1,3 +1,9 @@
-<aura:event type="COMPONENT" description="Send session to parent(CsHome) to persist">
-        <aura:attribute name="session" type="Object" description="The Updated Session"/>
+<!--    c:CsSaveSessionEvt
+        Component scoped event CsHome is handling and always above in the component hierachy. Less noisey
+-->
+<aura:event type="COMPONENT" description="Send session to parent(CsHome) so it can be saved to the server">
+        
+        <aura:attribute description="The current session from the current Panel"
+                name="session" 
+                type="Object" />
 </aura:event>

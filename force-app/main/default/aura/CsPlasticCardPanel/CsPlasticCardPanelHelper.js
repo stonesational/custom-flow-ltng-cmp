@@ -1,13 +1,13 @@
+/*	Example helper used as a starter when creating a new Panel
+    Parent helper methods from CsHome are also available
+ */
 ({
-    save : function(cmp) {
-        var CsSaveSessionEvt = cmp.getEvent("CsSaveSessionEvt");
-        CsSaveSessionEvt.setParams({ "session" : cmp.get("v.session") });
-        CsSaveSessionEvt.fire();
-    },
-
+    /*	When a card is selected it's added to the v.replacementCards array
+    Note: Don't update the session for cards directly. Cards are overwritten on session on save or navigate next
+    */
     updateCard : function(cmp, helper) {
         var session = cmp.get("v.session");
-        var currentCards = session.currentCards;
+        var currentCards = cmp.get("v.currentCards")
         var replacementCards = [];
         
         var searchResults = cmp.find("dynamicResult");
@@ -31,8 +31,6 @@
                 }
             }
         }
-        session.replacementCards = replacementCards;
-        cmp.set("v.session", session);
-        helper.save(cmp);
+        cmp.set("v.replacementCards", replacementCards);
     }
 })

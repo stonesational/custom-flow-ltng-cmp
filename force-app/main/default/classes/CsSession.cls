@@ -5,7 +5,7 @@ public with sharing class CsSession {
     @AuraEnabled public List<CsReplacementCard> replacementCards { get; set; }
        
     public CsSession() {
-
+        
     }
     
 }
